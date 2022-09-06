@@ -109,7 +109,7 @@ canvas.requestRenderAll();
 </script>
 <template>
   <div class="grid grid-flow-col my-2 gap-4 px-2">
-    <div class="flex justify-center bg-gray-200">
+    <div class="flex justify-center " v-bind:class="{'bg-sky-200':drawIsActive, 'bg-red-200':!drawIsActive}">
       <div v-on:mouseover="mouseOverAction" v-on:mouseout="mouseOutAction" class="">
         <canvas id="canvas" class="border"></canvas>
       </div>
