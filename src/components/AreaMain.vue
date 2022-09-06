@@ -1,9 +1,9 @@
 <script setup>
-  import ImportingPdfFiles from './Fabric/ImportingPdfFiles.vue';
+import Drawing from './Fabric/Drawing.vue';
 </script>
 <template>
   <div>
-    <ImportingPdfFiles />
+    <Drawing />
   </div>
 </template>
 <style scoped>
