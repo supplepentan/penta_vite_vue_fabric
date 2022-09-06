@@ -2,7 +2,7 @@
 import Drawing from './Fabric/Drawing.vue';
 </script>
 <template>
-  <div>
+  <div class="bg-sky-100">
     <Drawing />
   </div>
 </template>
