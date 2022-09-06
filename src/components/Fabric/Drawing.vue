@@ -109,23 +109,23 @@ canvas.requestRenderAll();
 </script>
 <template>
   <div class="grid grid-flow-col my-2 gap-4 px-2">
-    <div class="flex justify-center " v-bind:class="{'bg-sky-200':drawIsActive, 'bg-red-200':!drawIsActive}">
+    <div class="flex justify-center" v-bind:class="{'bg-sky-200':drawIsActive, 'bg-red-200':!drawIsActive}">
       <div v-on:mouseover="mouseOverAction" v-on:mouseout="mouseOutAction" class="">
         <canvas id="canvas" class="border"></canvas>
       </div>
     </div>
     <div>
-      <div>
+      <div class="flex justify-center">
         <button id="editMode" class="button" v-bind:class="{'bg-sky-200':drawIsActive, 'bg-red-200':!drawIsActive}"
           v-on:click="editMode">
-          <p v-if="drawIsActive">EDIT MODE</p>
-          <p v-if="!drawIsActive">DRAW MODE</p>
+          <p v-if="drawIsActive">EDIT MODE (Click to DRAW MODE)</p>
+          <p v-if="!drawIsActive">DRAW MODE (Click to EDIT MODE)</p>
         </button>
       </div>
       <div class="bg-gray-300">
         <div class="penStateInput">
           <label class="penStateInputLabel">Pen Size</label>
-          <input type="number" v-model="penSize" name="PenSize" class="border">{{ penSize }}
+          <input type="number" v-model="penSize" name="PenSize" class="border">
         </div>
         <div class="penStateInput">
           <label class="penStateInputLabel">Pen Color</label>
@@ -133,13 +133,9 @@ canvas.requestRenderAll();
         </div>
       </div>
       <div>
-        <button id="delete" class=" button" v-on:click="deleteObj">Delete</button>
-      </div>
-      <div>
-        <button id="clear" class=" button" v-on:click="clearObj">Clear</button>
-      </div>
-      <div>
-        <button v-on:click="download" class=" button">Download</button>
+        <button v-on:click="deleteObj" class="button bg-gray-200">Delete</button>
+        <button v-on:click="clearObj" class="button bg-gray-200">Clear</button>
+        <button v-on:click="download" class="button bg-gray-200">Download</button>
       </div>
     </div>
   </div>
@@ -150,10 +146,13 @@ canvas.requestRenderAll();
   @apply p-2
 }
 
+.penStateInputLabel {
+  @apply mx-2
+}
+
 .button {
   @apply border rounded-xl m-2 text-lg p-2
 }
-
 
 #cursor {
   --cursor-color-rgb: 0, 0, 0;
